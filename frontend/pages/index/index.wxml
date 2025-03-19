@@ -1,0 +1,50 @@
+<view class="container">
+  <!-- 顶部用户信息 -->
+  <view class="user-info">
+    <view class="avatar-wrapper">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="user-detail">
+      <view class="nickname">欢迎, {{userInfo.nickname}}</view>
+      <view class="credit">信用分: {{userInfo.creditScore}} 违约次数: {{userInfo.violationCount}}</view>
+    </view>
+  </view>
+  
+  <!-- 功能区 -->
+  <view class="function-area">
+    <view class="function-item" bindtap="scanQrCode">
+      <view class="function-icon">
+        <image src="/images/scan.png"></image>
+      </view>
+      <view class="function-name">扫码签到</view>
+    </view>
+    <navigator url="/pages/reservation/list" class="function-item">
+      <view class="function-icon">
+        <image src="/images/reservation.png"></image>
+      </view>
+      <view class="function-name">我的预约</view>
+    </navigator>
+    <navigator url="/pages/room/list" class="function-item">
+      <view class="function-icon">
+        <image src="/images/room.png"></image>
+      </view>
+      <view class="function-name">全部自习室</view>
+    </navigator>
+  </view>
+  
+  <!-- 近期自习室 -->
+  <view class="study-rooms">
+    <view class="section-title">近期自习室</view>
+    <view class="room-list">
+      <view wx:if="{{studyRooms.length === 0}}" class="no-data">暂无自习室数据</view>
+      <view wx:for="{{studyRooms}}" wx:key="id" class="room-item" bindtap="goToRoomDetail" data-id="{{item.id}}">
+        <view class="room-name">{{item.name}}</view>
+        <view class="room-info">
+          <view class="room-location">位置: {{item.location}}</view>
+          <view class="room-time">开放时间: {{item.openTime}} - {{item.closeTime}}</view>
+        </view>
+        <view class="room-seats">座位数: {{item.seatCount}}</view>
+      </view>
+    </view>
+  </view>
+</view> 
