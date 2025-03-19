@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="header">
+    <image class="logo" src="/images/logo.png"></image>
+    <view class="title">自习座位预约系统</view>
+  </view>
+  
+  <view class="form">
+    <view class="form-item">
+      <view class="form-label">学号</view>
+      <input class="form-input" type="text" placeholder="请输入学号" bindinput="inputStudentId" value="{{studentId}}" />
+    </view>
+    
+    <view class="form-item">
+      <view class="form-label">密码</view>
+      <input class="form-input" type="password" placeholder="请输入密码" bindinput="inputPassword" value="{{password}}" />
+    </view>
+    
+    <button class="login-btn" bindtap="login" loading="{{loading}}">登录</button>
+    
+    <view class="register-link" bindtap="goToRegister">还没有账号？点击注册</view>
+  </view>
+</view> 
